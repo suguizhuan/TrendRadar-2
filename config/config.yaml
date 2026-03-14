@@ -63,23 +63,38 @@ platforms:
       name: "华尔街见闻"
     - id: "thepaper"
       name: "澎湃新闻"
-    - id: "bilibili-hot-search"
-      name: "bilibili 热搜"
-    - id: "cls-hot"
-      name: "财联社热门"
     - id: "ifeng"
       name: "凤凰网"
-    - id: "tieba"
-      name: "贴吧"
     - id: "weibo"
       name: "微博"
-    - id: "douyin"
-      name: "抖音"
-    - id: "zhihu"
-      name: "知乎"
-
-
-
+    - id: "X(Twitter)"
+      name: "X(Twitter)"
+      - id: "ClinicalTrials"
+      name: "ClinicalTrials"
+      - id: "Biospace"
+      name: "Biospace"
+      - id: "Business Wire"
+      name: "Business Wire"
+      - id: "医药魔方"
+      name: "医药魔方"   
+      - id: "Business Wire"
+      name: "Business Wire"  
+       - id: "BioWorld"
+      name: "BioWorld" 
+       - id: "FierceBiotech"
+      name: "FierceBiotech" 
+      - id: "Google Scholar"
+      name: "Google Scholar" 
+    - id: "ASCO/AACR"
+      name: "ASCO/AACR" 
+       - id: "谷歌"
+      name: "谷歌" 
+      - id: "微信"
+      name: "微信" 
+     - id: "必应"
+      name: "必应"   
+      - id: "pubmed"
+      name: "pubmed" 
 # ===============================================================
 # 3. 数据源 - RSS 订阅
 #
@@ -95,7 +110,7 @@ rss:
   # 过滤掉发布时间超过指定天数的旧文章，避免同一篇文章重复出现在推送中
   #
   # 过滤逻辑：
-  #   - 文章发布时间距当前时间（app.timezone 时区）超过 N 天则不推送
+  #   - 文章发布时间距当前时间（app.timezone 时区）超过 30 天则不推送
   #   - 无发布时间的文章会被保留（不过滤）
   #
   # ⚠️ 过滤时机：在推送阶段过滤
@@ -105,7 +120,7 @@ rss:
     enabled: true                     # 是否启用新鲜度过滤（默认启用）
 
     max_age_days: 1                   # 最大文章年龄（天）
-                                      # - 正整数：只推送 N 天内的文章
+                                      # - 正整数：只推送 30 天内的文章
                                       # - 0：禁用过滤，推送所有文章
 
   # 单个 feed 可配置 max_age_days 覆盖全局设置：
@@ -113,24 +128,35 @@ rss:
   # - 正整数：覆盖全局设置，只推送此天数内的文章
   # - 0：禁用此频道的新鲜度过滤，推送所有文章
   feeds:
-    - id: "hacker-news"
-      name: "Hacker News"
-      url: "https://hnrss.org/frontpage"
+    - id: "clinicaltrials"
+      name: "clinicaltrials"
+      url: "https://www.clinicaltrials.gov/ct2/home"
 
-    - id: "ruanyifeng"
-      name: "阮一峰的网络日志"
-      url: "http://www.ruanyifeng.com/blog/atom.xml"
+    - id: "biospace"
+      name: "biospace"
+      url: "https://www.biospace.com/news/"
       enabled: false                  # 禁用
       # max_age_days: 3               # 示例：推送 3 天内的文章（更新较慢的博客）
      
-    - id: "yahoo-finance"
-      name: "雅虎财经"
-      url: "https://finance.yahoo.com/news/rssindex"
+    - id: "加科思"
+      name: "加科思"
+      url: "http://www.jacobiopharma.com/cn/pipeline "
 
     # 自定义源示例
     # - id: "custom-feed"
     #   name: "自定义源"
     #   url: "https://example.com/feed.xml"
+        url:"https://www.clinicaltrials.gov/ct2/home"
+         url:"https://www.isrctn.com/"
+         url:"https://www.australianclinicaltrials.gov.au/industry-and-sponsors"
+         url:"https://www.chictr.org.cn/searchproj.html"
+         url:"http://www.chinadrugtrials.org.cn/index.html"
+         url:"https://www.biospace.com/news/"
+         url:"https://www.cell.com/cell/newarticles"
+         url:"https://www.science.org/toc/science/0/0"
+         url:"https://www.nature.com/nature/research-articles"
+         url:"https://www.ncbi.nlm.nih.gov/"
+         url:"pubmed.ncbi.nlm.nih.gov/"
     #   enabled: false
     #   max_age_days: 0               # 示例：禁用过滤，推送所有文章
 
